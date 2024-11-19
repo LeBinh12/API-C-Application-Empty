@@ -162,6 +162,7 @@
     <Content Include="Web.config" />
     <Content Include="WebApi.aspx" />
     <Content Include="WebGet.aspx" />
+    <Content Include="WebPost.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataClasses1.designer.cs">
@@ -184,6 +185,13 @@
     </Compile>
     <Compile Include="WebGet.aspx.designer.cs">
       <DependentUpon>WebGet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPost.aspx.cs">
+      <DependentUpon>WebPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPost.aspx.designer.cs">
+      <DependentUpon>WebPost.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

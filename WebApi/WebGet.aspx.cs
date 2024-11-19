@@ -17,17 +17,28 @@ namespace WebApi
             string url = "https://localhost:44373/WebApi.aspx";
             JArray data = GetApi.GetDataFromApi(url);
 
-            string htmlContent = "<table border='1'><tr><th>Movie ID</th><th>Title</th><th>Description</th></tr>";
-            // duyệt json để lấy các thông tin 
+            List<Movie> movies = new List<Movie>();
+
             foreach (var movie in data)
             {
-                htmlContent += $"<tr><td>{movie["MovieID"]}</td><td>{movie["Title"]}</td><td>{movie["description"]}</td></tr>";
+                movies.Add(new Movie
+                {
+                    MovieID = movie["MovieID"].ToString(),
+                    Title = movie["Title"].ToString(),
+                    Description = movie["description"].ToString()
+                });
             }
-            htmlContent += "</table>";
 
-            LiteralData.Text = htmlContent;
+            RepeaterMovies.DataSource = movies;
+            RepeaterMovies.DataBind();
 
         }
-
+        // Tạo lớp movie để lưu những thông tin muốn xuất hiện trên page
+        public class Movie
+        {
+            public string MovieID { get; set; }
+            public string Title { get; set; }
+            public string Description { get; set; }
+        }
     }
 }
